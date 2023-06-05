@@ -55,3 +55,28 @@ const newPassport = function (person) {
 
 newPassport(sunil);
 flightCheckIn(flight, sunil);
+
+const oneWord = function (str) {
+  return str.replace(/ /g, '').toLowerCase();
+};
+
+const upperFirstWord = function (str) {
+  const [firstWord, ...otherWords] = str.split(' ');
+  return [firstWord.toUpperCase(), ...otherWords].join(' ');
+};
+
+const transform = function (str, fnc) {
+  console.log(`Original String : ${str}`);
+  console.log(`Transformed String : ${fnc(str)}`);
+  console.log(`Transformed By : ${fnc.name}`);
+};
+
+transform('Hi, I am Sunil Kumar HS', upperFirstWord);
+transform(`Hi, I am Sunil Kumar HS`, oneWord);
+
+const high5 = function () {
+  console.log('✋');
+};
+
+document.body.addEventListener('click', high5);
+['sunil', 'charan', 'sunilKV'].forEach(high5);
