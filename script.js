@@ -134,3 +134,18 @@ const indigo = {
 const book = tataAirIndia.book;
 book.call(indigo, 26, 'Sunil H S');
 console.log(indigo);
+
+const flightDetail = [18, 'Sunil Kumar H S'];
+book.apply(tataAirIndia, flightDetail);
+console.log(tataAirIndia);
+
+book.call(indigo, ...flightDetail);
+console.log(indigo);
+
+const taiBooking = book.bind(tataAirIndia);
+taiBooking(12, 'Charan Reddy');
+console.log(tataAirIndia);
+
+const tai17Booking = book.bind(tataAirIndia, 17);
+tai17Booking('SunilKumarHS');
+console.log(tataAirIndia);
