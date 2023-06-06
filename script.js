@@ -80,3 +80,57 @@ const high5 = function () {
 
 document.body.addEventListener('click', high5);
 ['sunil', 'charan', 'sunilKV'].forEach(high5);
+
+//return functions
+
+const greetings = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greetingHey = greetings('Hey');
+greetingHey('Sunil');
+greetingHey('Charan');
+
+greetings('Hello')('Sunil Kumar H S');
+
+const arrowGreetings = greeting => name => {
+  console.log(`${greeting} ${name}`);
+};
+
+// const arrowGreetings = greeting => {
+//   return name => {
+//     console.log(`${greeting} ${name}`);
+//   };
+// };
+
+arrowGreetings('hey,')('Sunil');
+
+//call,apply,bind methods
+
+const tataAirIndia = {
+  name: 'Tata Air India',
+  code: 'AI',
+  bookings: [],
+  book(flightNum, passName) {
+    console.log(
+      `${passName} has booked the seat in ${this.name} flight ${this.code}${flightNum}`
+    );
+    this.bookings.push({ flight: `${this.code}${flightNum}`, passName });
+  },
+};
+
+tataAirIndia.book(17, 'Sunil');
+tataAirIndia.book(18, 'Charan');
+
+console.log(tataAirIndia);
+const indigo = {
+  name: 'Indigo Airlines',
+  code: 'IA',
+  bookings: [],
+};
+
+const book = tataAirIndia.book;
+book.call(indigo, 26, 'Sunil H S');
+console.log(indigo);
