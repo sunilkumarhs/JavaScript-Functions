@@ -149,3 +149,34 @@ console.log(tataAirIndia);
 const tai17Booking = book.bind(tataAirIndia, 17);
 tai17Booking('SunilKumarHS');
 console.log(tataAirIndia);
+
+//buyPlane button
+
+tataAirIndia.planes = 200;
+
+tataAirIndia.buyPlanes = function () {
+  console.log(this);
+  this.planes++;
+  console.log(this.planes);
+};
+
+document
+  .querySelector('.buy')
+  .addEventListener('click', tataAirIndia.buyPlanes.bind(tataAirIndia));
+
+//partial application
+const addTax = (rate, value) => value + rate * value;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+console.log(addVAT(100));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + rate * value;
+  };
+};
+
+// const addVat = addTaxRate(0.23);
+// addVat(200);
+console.log(addTaxRate(0.23)(200));
