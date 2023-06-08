@@ -250,3 +250,29 @@ document
 poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
 poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
+
+//Immediatelly Invoked Function Expression (IIFE)
+console.log('IIFE-Immediatly Invoked Function Expression');
+(function () {
+  console.log(
+    'This is not runed second time, it is immediatelly invoked only once'
+  );
+})();
+
+(() =>
+  console.log('This function can be executed only once, immediatelly!!'))();
+
+// Clousures
+console.log('Clousures');
+const secureBooking = function () {
+  let privateCount = 0;
+  return function () {
+    privateCount++;
+    console.log(`The privateCount value : ${privateCount}`);
+  };
+};
+
+const booking = secureBooking();
+booking();
+booking();
+booking();
